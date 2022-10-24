@@ -5,3 +5,9 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
 }
+
+/*  nusitaikyti i po pazymetu radio buttonu esanti label */
+.columns input:checked + label {
+  font-weight: bold;
+  font-style: italic;
+}

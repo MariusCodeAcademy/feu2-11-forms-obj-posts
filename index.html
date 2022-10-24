@@ -31,13 +31,14 @@
 
     <main>
       <h2>Our posts</h2>
-      <fieldset>
+      <fieldset id="columns" class="columns">
         <legend>How many columns?</legend>
         <input type="radio" name="cols" id="one" value="1">
         <label for="one">One</label>
         <input type="radio" name="cols" id="two" value="2">
         <label for="two">Two</label>
         <input type="radio" name="cols" id="three" value="3" checked>
+        <!-- grid-template-columns: repeat(3, 1fr); -->
         <label for="three">Three</label>
       </fieldset>
       <div id="postsContainer" class="postsContainer">
