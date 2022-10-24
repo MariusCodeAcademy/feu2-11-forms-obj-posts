@@ -44,8 +44,13 @@ function initPosts() {
 }
 
 // atrinkti kuris autorius galima ir su tokiu masyvu. pabandyti
+//
 const selectOptions = ['', 'Jame Bond', 'Serbentautas', 'Severijus Klaida'];
-
+function whitchAuthorArr(id) {
+  return selectOptions[id];
+}
+whitchAuthorArr(3);
+console.log('selectOptions ===', selectOptions);
 /* 
   <option value="1">Jame Bond</option>
   <option value="2">Serbentautas</option>
@@ -109,7 +114,7 @@ function generatePost(valuesObj, dest) {
 
   crEl('h3', articleEl, 'post__title', valuesObj.title);
 
-  const authorName = whitchAuthor(+valuesObj.author);
+  const authorName = whitchAuthorArr(+valuesObj.author);
   crEl('h4', articleEl, 'post__author', authorName);
 
   crEl('p', articleEl, 'post__date', valuesObj.date);
@@ -121,7 +126,9 @@ function generatePost(valuesObj, dest) {
 function deletePost(event) {
   console.log('deletePost funkcija');
   console.log('event.target ===', event.target);
+  // prideti confirm() ir jei vartojoas patvirtina, tai istrinam, jei ne netrinam
   // istrinti event.target tevini elementa su .remove()
+  event.target.parentElement.remove();
 }
 
 function crEl(tagName, dest, className, text) {
