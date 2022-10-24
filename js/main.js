@@ -11,6 +11,17 @@ const htmlEls = {
   postsContainer: document.getElementById('postsContainer'),
 };
 
+/* 
+  <option value="1">Jame Bond</option>
+  <option value="2">Serbentautas</option>
+  <option value="3">Severijus Klaida</option>
+*/
+
+function whitchAuthor() {
+  let id = 2;
+  // su if else arba switch
+}
+
 // console.log('htmlEls ===', htmlEls);
 
 /**
@@ -58,6 +69,7 @@ function generatePost(valuesObj, dest) {
   articleEl.append(imgEl);
 
   crEl('h3', articleEl, 'post__title', valuesObj.title);
+  // whitchAuthor(valuesObj.author)
   crEl('h4', articleEl, 'post__author', valuesObj.author);
   crEl('p', articleEl, 'post__date', valuesObj.date);
   crEl('p', articleEl, 'post__text', valuesObj.body);
