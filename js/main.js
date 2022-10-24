@@ -25,6 +25,14 @@ htmlEls.form.addEventListener('submit', (event) => {
 
   // sukurti formValues objekta
   const formValues = {
-    title: '',
+    title: htmlEls.title.value.trim(),
+    image: htmlEls.image.value.trim(),
+    date: htmlEls.date.value.trim(),
+    author: htmlEls.author.value.trim(),
+    body: htmlEls.body.value.trim(),
   };
+  generatePost(formValues);
+  console.log('formValues ===', formValues);
 });
+
+function generatePost(valuesObj, dest) {}
