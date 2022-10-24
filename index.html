@@ -15,7 +15,7 @@
   <div class="container">
     <h1>Blog application</h1>
 
-    <form id="createPost" class="flex flex-col card align-start">
+    <form id="createPost" class="flex flex-col card align-start mb-40">
       <input type="text" placeholder="Title" id="title">
       <input type="url" placeholder="Image" id="image">
       <input type="date" placeholder="Date" id="date">
@@ -31,6 +31,15 @@
 
     <main>
       <h2>Our posts</h2>
+      <fieldset>
+        <legend>How many columns?</legend>
+        <input type="radio" name="cols" id="one" value="1">
+        <label for="one">One</label>
+        <input type="radio" name="cols" id="two" value="2">
+        <label for="two">Two</label>
+        <input type="radio" name="cols" id="three" value="3" checked>
+        <label for="three">Three</label>
+      </fieldset>
       <div id="postsContainer" class="postsContainer">
         <!-- <div class="card post">
           <img src="https://picsum.photos/id/1019/5472/3648" alt="sdsd">
