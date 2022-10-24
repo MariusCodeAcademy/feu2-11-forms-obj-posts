@@ -45,6 +45,7 @@ htmlEls.form.addEventListener('submit', (event) => {
   <p class="post__text">sdsd</p>
 </article>
 */
+
 function generatePost(valuesObj, dest) {
   const articleEl = document.createElement('article');
   articleEl.className = 'card post';
@@ -60,6 +61,14 @@ function generatePost(valuesObj, dest) {
   crEl('h4', articleEl, 'post__author', valuesObj.author);
   crEl('p', articleEl, 'post__date', valuesObj.date);
   crEl('p', articleEl, 'post__text', valuesObj.body);
+  const deleteBtnEl = crEl('button', articleEl, 'deletePost', 'delete');
+  deleteBtnEl.addEventListener('click', deletePost);
+}
+
+function deletePost(event) {
+  console.log('deletePost funkcija');
+  console.log('event.target ===', event.target);
+  // istrinti event.target tevini elementa su .remove()
 }
 
 function crEl(tagName, dest, className, text) {
@@ -67,6 +76,6 @@ function crEl(tagName, dest, className, text) {
   if (className) el.className = className;
   if (text || text === 0) el.textContent = text;
   dest.append(el);
-  console.log(el);
+  // console.log(el);
   return el;
 }
