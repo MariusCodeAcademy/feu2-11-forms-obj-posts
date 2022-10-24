@@ -11,6 +11,41 @@ const htmlEls = {
   postsContainer: document.getElementById('postsContainer'),
 };
 
+// initial posts
+const initPostsArr = [
+  {
+    title: 'HTML',
+    image: 'https://picsum.photos/id/1019/1000/800',
+    date: '2022-01-05',
+    author: '3',
+    body: 'html is structure',
+  },
+  {
+    title: 'CSS',
+    image: 'https://picsum.photos/id/1/1000/800',
+    date: '2022-01-05',
+    author: '2',
+    body: 'CSS is design',
+  },
+  {
+    title: 'JS',
+    image: 'https://picsum.photos/id/1010/1000/800',
+    date: '2022-01-05',
+    author: '1',
+    body: 'JS is interactivity',
+  },
+];
+initPostsArr[1].title; // 'CSS'
+
+function initPosts() {
+  for (let onePost of initPostsArr) {
+    generatePost(onePost, htmlEls.postsContainer);
+  }
+}
+initPosts();
+// atrinkti kuris autorius galima ir su tokiu masyvu. pabandyti
+const selectOptions = ['', 'Jame Bond', 'Serbentautas', 'Severijus Klaida'];
+
 /* 
   <option value="1">Jame Bond</option>
   <option value="2">Serbentautas</option>
@@ -46,16 +81,6 @@ htmlEls.form.addEventListener('submit', (event) => {
   generatePost(formValues, htmlEls.postsContainer);
   // console.log('formValues ===', formValues);
 });
-
-/*
-<article class="card post">
-  <img src="https://picsum.photos/id/1019/5472/3648" alt="sdsd">
-  <h3 class="post__title">title</h3>
-  <h4 class="post__author">Autorius: </h4>
-  <p class="post__date">dsds</p>
-  <p class="post__text">sdsd</p>
-</article>
-*/
 
 function generatePost(valuesObj, dest) {
   const articleEl = document.createElement('article');
