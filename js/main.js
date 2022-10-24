@@ -42,7 +42,7 @@ function initPosts() {
     generatePost(onePost, htmlEls.postsContainer);
   }
 }
-initPosts();
+
 // atrinkti kuris autorius galima ir su tokiu masyvu. pabandyti
 const selectOptions = ['', 'Jame Bond', 'Serbentautas', 'Severijus Klaida'];
 
@@ -52,18 +52,32 @@ const selectOptions = ['', 'Jame Bond', 'Serbentautas', 'Severijus Klaida'];
   <option value="3">Severijus Klaida</option>
 */
 
-function whitchAuthor() {
-  let id = 2;
+function whitchAuthor(id) {
   // su if else arba switch
+  switch (id) {
+    case 1:
+      console.log('Jame Bond');
+      return 'Jame Bond';
+    case 2:
+      console.log('Serbentautas');
+      return 'Serbentautas';
+    case 3:
+      console.log('Severijus Klaida');
+      return 'Severijus Klaida';
+    default:
+      return 'nera autoriaus';
+  }
 }
-
+// console.log('whitchAuthor(1) ===', whitchAuthor(1));
 // console.log('htmlEls ===', htmlEls);
 
 /**
  * Main app function
  */
-function init() {}
-
+function init() {
+  initPosts();
+}
+init();
 // Event Listeners
 
 htmlEls.form.addEventListener('submit', (event) => {
@@ -94,8 +108,10 @@ function generatePost(valuesObj, dest) {
   articleEl.append(imgEl);
 
   crEl('h3', articleEl, 'post__title', valuesObj.title);
-  // whitchAuthor(valuesObj.author)
-  crEl('h4', articleEl, 'post__author', valuesObj.author);
+
+  const authorName = whitchAuthor(+valuesObj.author);
+  crEl('h4', articleEl, 'post__author', authorName);
+
   crEl('p', articleEl, 'post__date', valuesObj.date);
   crEl('p', articleEl, 'post__text', valuesObj.body);
   const deleteBtnEl = crEl('button', articleEl, 'deletePost', 'delete');
