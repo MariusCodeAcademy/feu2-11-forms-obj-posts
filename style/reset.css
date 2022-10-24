@@ -18,6 +18,7 @@ img {
 }
 
 input[type='text'],
+input[type='number'],
 input[type='url'],
 input[type='date'],
 textarea,
